@@ -1,3 +1,4 @@
 {
-    "error": "Failed to fetch playlist. HTTP Code: 0"
+    "status": "error",
+    "message": "Failed to fetch playlist. HTTP Code: 404"
 }
