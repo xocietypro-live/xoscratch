@@ -19,13 +19,13 @@ jobs:
           php-version: '8.2'
           extensions: curl
 
-      - name: Run Script
-        run: php update.php
+      - name: Run Script and Save Output
+        run: php update.php > playlist.json
 
       - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add playlist.m3u
-          git commit -m "Updated playlist.m3u via GitHub Action" || echo "No changes to commit"
+          git add playlist.json
+          git commit -m "Updated playlist.json via GitHub Action" || echo "No changes to commit"
           git push
