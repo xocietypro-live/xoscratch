@@ -1,14 +1,14 @@
 name: Auto-Update Playlist
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # Allows you to run it manually
 
 jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write # Important: Allows the script to save the file
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -19,13 +19,13 @@ jobs:
           php-version: '8.2'
           extensions: curl
 
-      - name: Run Script and Save Output
-        run: php update.php > playlist.json
+      - name: Run Script
+        run: php update.php
 
       - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add playlist.json
-          git commit -m "Updated playlist.json via GitHub Action" || echo "No changes to commit"
+          git add playlist.m3u
+          git commit -m "Updated playlist via GitHub Action" || echo "No changes to commit"
           git push
