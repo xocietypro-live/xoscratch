@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
 // --- CONFIGURATION ---
-$targetPlaylist = "https://servertvhub.site/cache/playlist.php"; 
+$targetPlaylist = "https://ksr.indevs.in/playlist/playlist.php?token=b2e48c058bd3ab5151161c7457c2e149"; 
 // ---------------------
 
 function fetchAndParse($url) {
